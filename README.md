@@ -12,4 +12,4 @@
 
 ## 25 may 2021 - lesson 2
 
-## 8 jun 2021  - lesson 3
+## 8 jun 2021 - lesson 3
