@@ -1,5 +1,7 @@
 from django.http import HttpResponse
 import datetime
+from django.template import Template, Context
+
 
 def greeting(request): # first view
     ''' function to say hello '''
@@ -12,15 +14,12 @@ def bye(request): # second view
 def givetime(request): # third view with time function
     ''' function to give current time '''
     curdate = datetime.datetime.now()
-    document = """
-    <html>
-    <body>
-    <h1>
-    Current time %s
-    </h1>
-    </body>
-    </html> """ % curdate
-    return HttpResponse(document)
+    document = open("/home/calilog/django/projects/localdjango/localdjango/templates/givetime.html")
+    plt = Template(document.read())
+    document.close()
+    ctx = Context()
+    doc = plt.render(ctx)        
+    return HttpResponse(doc)
 
 def calage(request, age, agno): # fourth view with parameters in urls
     ''' function to calculate age '''
